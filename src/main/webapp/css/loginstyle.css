@@ -1,0 +1,88 @@
+body{
+    background-color: darkgrey;
+    background-image: url(../images/cloud.jpg);
+}
+.loginArea,
+.registerArea {
+    width: 300px;
+    margin: 0 auto;
+    background-color: white;
+    padding-bottom: 45px;
+}
+input.normalInput{
+    color: grey;
+    font-size: 14px;
+    display: block;
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 220px;
+}
+
+.loginArea > h2,
+.registerArea > h2{
+    padding-top: 50px;
+    padding-bottom:35px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100px;
+    font-weight: lighter;
+    font-family: Arial;
+    color: grey;
+
+}
+
+.loginArea button,
+.registerArea button  {
+
+    width: 234px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #3385ff;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.loginArea ul.loginFooter,
+.registerArea ul.registerFooter {
+    text-align: center;
+    padding-top: 10px;
+    width: 165px;
+    margin: 0 auto;
+    font-size: 10px;
+
+    padding-left:0;
+}
+.loginArea ul.loginFooter a,
+.registerArea ul.registerFooter a{
+    color: lightgrey;
+    font-size: 14px;
+    text-decoration: none;
+
+}
+
+.loginArea ul.loginFooter > li:nth-child(1),
+.registerArea ul.registerFooter > li:nth-child(1){
+    float: left;
+    list-style-type: none;
+}
+.loginArea ul.loginFooter > li:nth-child(2),
+.registerArea ul.registerFooter > li:nth-child(2){
+    float: right;
+}
+
+p.error{
+    color: red;
+    width: 220px;
+    margin: 0 auto;
+    padding-top: 5px;
+    display: none;
+}
+
+
+input.normalInput.error {
+    border: 1px solid red;
+
+}

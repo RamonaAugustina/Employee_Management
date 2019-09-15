@@ -14,12 +14,18 @@ import javax.persistence.Table;
 public class Employee {
 
     @Id
-    @Column(name = "employee_id")
+    @Column(name = "Employee_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "First_Name", length = 40)
+    private String firstName;
+    @Column(name = "Last_Name", length = 40)
+    private String lastName;
+    @Column(name = "Age", length = 40)
+    private Integer age;
+    @Column(name = "Department", length = 40)
+    private String department;
 
-    @Column(name = "name", length = 40)
-    private String name;
 
     public Long getId() {
         return id;
@@ -29,11 +35,35 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }
