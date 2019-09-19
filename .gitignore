@@ -23,5 +23,6 @@ out/
 modules.xml
 .idea/misc.xml
 *.ipr
-target/
+/target/
+*.class
 # End of https://www.gitignore.io/api/intellij+iml
