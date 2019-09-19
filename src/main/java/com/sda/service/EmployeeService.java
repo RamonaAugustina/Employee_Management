@@ -16,9 +16,22 @@ public class EmployeeService {
 
     public List<Employee> getAll(){
         List<Employee> list  = new ArrayList<>();
-        Employee employee = new Employee();
-        employee.setFirstName("Alexandru");
-        list.add(employee);
+        Employee emp1 = createEmployee("Calin","Alexandru",30,"HR");
+        list.add(emp1);
+        Employee emp2 = createEmployee("Popescu","George",20,"IT");
+        list.add(emp2);
+
+
         return list;
+    }
+
+    public Employee createEmployee(String firstName, String lastName, int age, String departament){
+        Employee emp = new Employee();
+        emp.setFirstName(firstName);
+        emp.setLastName(lastName);
+        emp.setAge(age);
+        emp.setDepartment(departament);
+
+        return emp;
     }
 }

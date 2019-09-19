@@ -62,3 +62,11 @@ body {
         float: none;
     }
 }
+
+table{
+    border: 1px solid ;
+    background-color: aliceblue;
+    width :100%;
+    text-align: left;
+    border-collapse: collapse;
+}

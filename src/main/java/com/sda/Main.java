@@ -8,14 +8,21 @@ import com.sda.model.User;
 public class Main {
 
     public static void main(String[] args) {
-        User user = new User("admin", "admin");
+
         UserDao userDao = new UserDao();
-        userDao.createEntity(user);
-        Employee employee = new Employee();
-        employee.setFirstName("Ramona");
-          EmployeeDao employeeDao = new EmployeeDao();
-//          Employee employee = employeeDao.getEntityById(Employee.class, 1L);
-        System.out.println(employee.getFirstName());
-        employeeDao.createEntity(employee);
+        EmployeeDao employeeDao = new EmployeeDao();
+
+        User adminUser = userDao.findByUsernameAndPassword("admin", "admin");
+        if (adminUser == null) {
+            userDao.createEntity( new User("admin", "admin"));
+        }
+
+        Employee employee = employeeDao.findByFirstNameAndLastName("Ramona", "Popovici");
+        if (employee == null) {
+            employeeDao.createEntity(new Employee("Ramona", "Popovici", 20, "HR"));
+        }
+
     }
 }
+
+

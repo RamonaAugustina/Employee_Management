@@ -15,7 +15,7 @@ public class UserDao extends GenericDao<User> {
         Transaction transaction = session.beginTransaction();
 
         //use the class name User instead of the table name
-        Query query = session.createQuery("from User where username = :username AND password = :password ");
+        Query query = session.createQuery("FROM User WHERE username = :username AND password = :password ");
         query.setParameter("username", username);
         query.setParameter("password", password);
         List<User> list = query.getResultList();

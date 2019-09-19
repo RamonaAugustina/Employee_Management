@@ -26,6 +26,15 @@ public class Employee {
     @Column(name = "Department", length = 40)
     private String department;
 
+    public Employee(String firstName, String lastName, Integer age, String department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.department = department;
+    }
+
+    public Employee() {
+    }
 
     public Long getId() {
         return id;
