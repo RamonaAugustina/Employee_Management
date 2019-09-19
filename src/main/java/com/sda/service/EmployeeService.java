@@ -20,7 +20,14 @@ public class EmployeeService {
         list.add(emp1);
         Employee emp2 = createEmployee("Popescu","George",20,"IT");
         list.add(emp2);
-
+        Employee emp3= createEmployee("Manolache", "Sergiu", 24, "Logistic");
+        list.add(emp3);
+        Employee emp4=createEmployee("Loghin", "Ionela", 26, "HR");
+        list.add(emp4);
+        Employee emp5=createEmployee("Budeanu", "Laura", 27, "IT");
+        list.add(emp5);
+        Employee emp6=createEmployee("Jeleanu", "Bianca", 20, "HR");
+        list.add(emp6);
 
         return list;
     }

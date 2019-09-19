@@ -34,6 +34,16 @@
             <th>Age</th>
             <th>Department</th>
         </tr>
+
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="5">
+                <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a><a href="#">&raquo;</a></div>
+            </td>
+        </tr>
+        </tfoot>
+
         <c:forEach items="${employeeService.getAll()}" var="emp" varStatus="loop">
             <tr>
                 <td><c:out value="${loop.count}" />
@@ -43,7 +53,6 @@
                 <td><c:out value="${emp.getDepartment()}" />
 
             </tr>
-
         </c:forEach>
     </table>
 </body>

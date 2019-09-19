@@ -16,6 +16,7 @@
 <head>
     <title>Employees</title>
 </head>
+<jsp:include page="header.jsp"/>
 <body>
 <h1>Employees page!</h1>
 <%--<c:forEach items="${employeeService.findById(1)}" var="employee">--%>
@@ -24,7 +25,7 @@
 <%--<c:forEach items="${userService.findById(1)}" var="user">--%>
     <%--<span><c:out value="${employee.getUsername()}"/></span>--%>
 <%--</c:forEach>--%>
-    <table border="1" cellpadding="5">
+    <table >
         <caption><h2>List of employees</h2></caption>
         <tr>
             <th>Employee_id</th>
@@ -33,16 +34,25 @@
             <th>Age</th>
             <th>Department</th>
         </tr>
-        <c:forEach items="${employeeService.getAll()}" var="emp">
+
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="5">
+                <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a><a href="#">&raquo;</a></div>
+            </td>
+        </tr>
+        </tfoot>
+
+        <c:forEach items="${employeeService.getAll()}" var="emp" varStatus="loop">
             <tr>
-                <td><c:out value="${emp.getId()}" />
+                <td><c:out value="${loop.count}" />
                 <td><c:out value="${emp.getFirstName()}" />
                 <td><c:out value="${emp.getLastName()}" />
                 <td><c:out value="${emp.getAge()}" />
                 <td><c:out value="${emp.getDepartment()}" />
 
             </tr>
-
         </c:forEach>
     </table>
 </body>
