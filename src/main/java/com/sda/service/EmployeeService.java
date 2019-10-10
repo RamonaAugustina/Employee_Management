@@ -3,36 +3,40 @@ package com.sda.service;
 import com.sda.dao.EmployeeDao;
 import com.sda.model.Employee;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeService {
 
     private EmployeeDao employeeDao = new EmployeeDao();
 
-    public Employee findById(Long id){
+    public Employee findById(Long id) {
         return employeeDao.getEntityById(Employee.class, id);
     }
 
-    public List<Employee> getAll(){
-        List<Employee> list  = new ArrayList<>();
-        Employee emp1 = createEmployee("Calin","Alexandru",30,"HR");
-        list.add(emp1);
-        Employee emp2 = createEmployee("Popescu","George",20,"IT");
-        list.add(emp2);
-        Employee emp3= createEmployee("Manolache", "Sergiu", 24, "Logistic");
-        list.add(emp3);
-        Employee emp4=createEmployee("Loghin", "Ionela", 26, "HR");
-        list.add(emp4);
-        Employee emp5=createEmployee("Budeanu", "Laura", 27, "IT");
-        list.add(emp5);
-        Employee emp6=createEmployee("Jeleanu", "Bianca", 20, "HR");
-        list.add(emp6);
-
-        return list;
+    public void updateEmployee(Employee employee){
+        employeeDao.updateEntity(employee);
     }
 
-    public Employee createEmployee(String firstName, String lastName, int age, String departament){
+    public List<Employee> getAll() {
+        return employeeDao.getAll();
+    }
+
+
+    public void delete(Long id) {
+        employeeDao.delete(Employee.class, id);
+    }
+
+    public void createEmployee(Employee employee){
+        employeeDao.createEntity(employee);
+    }
+
+    public  void updateEmployee(String name, Long id){
+        Employee oldEmployee =findById(id);
+        oldEmployee.setFirstName(name);
+        updateEmployee(oldEmployee);
+    }
+
+    public Employee createEmployee(String firstName, String lastName, int age, String departament) {
         Employee emp = new Employee();
         emp.setFirstName(firstName);
         emp.setLastName(lastName);
@@ -42,3 +46,8 @@ public class EmployeeService {
         return emp;
     }
 }
+
+
+
+
+

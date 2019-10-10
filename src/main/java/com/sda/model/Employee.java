@@ -1,5 +1,6 @@
 package com.sda.model;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyToOne;
 
 import javax.persistence.Column;
@@ -15,7 +16,8 @@ public class Employee {
 
     @Id
     @Column(name = "Employee_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name= "increment", strategy = "increment")
     private Long id;
     @Column(name = "First_Name", length = 40)
     private String firstName;
@@ -25,6 +27,7 @@ public class Employee {
     private Integer age;
     @Column(name = "Department", length = 40)
     private String department;
+
 
     public Employee(String firstName, String lastName, Integer age, String department) {
         this.firstName = firstName;
@@ -75,4 +78,17 @@ public class Employee {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", department='" + department + '\'' +
+                '}';
+    }
+
 }
+

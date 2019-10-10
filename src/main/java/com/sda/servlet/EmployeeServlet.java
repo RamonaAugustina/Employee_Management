@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(value = "/employees")
-public class Employees extends HttpServlet {
+public class EmployeeServlet extends HttpServlet {
 
     private EmployeeDao employeeDao = new EmployeeDao();
     private EmployeeService employeeService = new EmployeeService();
@@ -26,14 +26,15 @@ public class Employees extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       String firstName = req.getParameter("first_name");
-       String lastName = req.getParameter("last_name");
+        String firstName = req.getParameter("first_name");
+        String lastName = req.getParameter("last_name");
+        String department = req.getParameter("department");
+        String age = req.getParameter("age");
 
-       Employee emp = employeeService.createEmployee(firstName,lastName,0,"departament");
-       employeeDao.createEntity(emp);
+        Employee emp = employeeService.createEmployee(firstName, lastName, Integer.valueOf(age), department);
+        employeeDao.createEntity(emp);
+        //TO DO: Create employee in database
 
-      //TO DO: Create employee in database
-
-        resp.sendRedirect("employees.jsp");
+        resp.sendRedirect("home.jsp");
     }
 }

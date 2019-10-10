@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserDao extends GenericDao<User> {
 
-    public User findByUsernameAndPassword(String username, String password){
+    public User findByUserNameAndPassword(String username, String password){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 

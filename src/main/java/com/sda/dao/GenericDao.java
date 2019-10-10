@@ -36,4 +36,13 @@ public class GenericDao<T> {
         session.close();
         return entityToReturn;
     }
+    public T delete(Class<T> cls, Long id){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        T entity = session.get(cls, id);
+        session.delete(entity);
+        transaction.commit();
+        //session.close();
+        return entity;
+    }
 }
